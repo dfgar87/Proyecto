@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Comentarios</title>
+    <link rel="stylesheet" href="../css/comentarios.css" />          
+</head>
+<body>
+
+<div class="container">
+    <h1>Déjanos tu Comentario</h1>
+    
+    <form action="/procesar_comentario" method="POST">
+        
+        <div>
+            <label for="nombre">Nombre o Nickname (Obligatorio):</label>
+            <input type="text" id="nombre" name="nombre_usuario" required>
+        </div>
+        
+        <div>
+            <label for="comentario">Tu Comentario (Obligatorio):</label>
+            <textarea id="comentario" name="texto_comentario" rows="5" required></textarea>
+        </div>
+        
+        <div class="calificacion-opcional">
+            <label for="calificacion">Calificación (Opcional):</label>
+            <select id="calificacion" name="calificacion">
+                <option value="">-- Selecciona una calificación --</option>
+                <option value="5">5 - Excelente</option>
+                <option value="4">4 - Muy Bueno</option>
+                <option value="3">3 - Bueno</option>
+                <option value="2">2 - Regular</option>
+                <option value="1">1 - Malo</option>
+            </select>
+        </div>
+        
+        <div>
+            <button type="submit">Enviar Comentario</button>
+        </div>
+        
+    </form>
+</div>
+
+</body>
+</html>

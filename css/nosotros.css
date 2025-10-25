@@ -1,0 +1,254 @@
+/* Variables de diseño */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-bg: #fff;
+    --content-bg: #f4f4f4; /* Fondo del área de contenido, un gris muy claro */
+    --main-text-color: #333;
+    --secondary-text-color: #666;
+    --primary-color: #1b1935; /* Azul oscuro para títulos/botones */
+    --active-link-bg: #eee;
+    --button-blue: #007bff; /* Azul para el botón "Suscríbete" */
+}
+
+/* Estilos Generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--main-text-color);
+    background-color: var(--content-bg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Layout Principal con Flexbox */
+.page-layout {
+    display: flex;
+    min-height: 100vh; /* Para ocupar toda la altura de la vista */
+    padding-bottom: 60px; /* Espacio para la barra de suscripción fija */
+}
+
+/* 1. Barra Lateral (Sidebar) */
+.sidebar-menu {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    padding: 20px 0;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Fija la barra lateral */
+    height: 100%;
+}
+.logo img{
+  height: 95px;
+}
+
+.encab-pag .logo{
+  float: left;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+.logo-area {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center; /* Centra el logo */            
+}
+
+.platform-logo {
+    color: var(--secondary-text-color);
+}
+
+.nav-item {
+    display: block;
+    padding: 8px 30px;
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background-color: var(--active-link-bg);
+}
+
+.active-item {
+    font-weight: bold;
+    color: var(--main-text-color);
+    background-color: var(--active-link-bg);
+    border-left: 3px solid var(--primary-color);
+    padding-left: 27px; /* Ajuste para compensar el borde */
+}
+
+.separator {
+    height: 1px;
+    background-color: #eee;
+    margin: 10px 0;
+}
+
+.user-footer {
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.settings-icons i {
+    margin-left: 15px;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+}
+
+/* 2. Contenido Principal (Main Content) */
+.main-content {
+    margin-left: var(--sidebar-width); /* Desplaza el contenido para que no quede detrás del sidebar fijo */
+    flex-grow: 1;
+    padding: 0 40px; /* Padding izquierdo y derecho para centrar */
+}
+
+.content-header {
+    text-align: center;
+    padding: 40px 0 20px 0;
+    margin-bottom: 20px;
+    color: var(--secondary-text-color);
+    font-size: 2.8rem;
+    position: relative;
+}
+
+.header-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: var(--secondary-text-color);
+}
+
+/* 3. Estilos de Sección y Texto */
+.page-section {
+    max-width: 650px; /* Limita el ancho del texto para mejor legibilidad */
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800; /* Extra bold */
+    color: var(--primary-color);
+    margin: 40px 0 15px;
+    line-height: 1.1;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.specific-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.values-list, .specific-list {
+    list-style: none; /* Quita el estilo de lista por defecto */
+    padding-left: 0;
+}
+
+.values-list li, .specific-list li {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.values-list li::before {
+    content: "—"; /* Simula el guion largo de la imagen */
+    position: absolute;
+    left: 0;
+    color: var(--secondary-text-color);
+    font-weight: bold;
+}
+
+.specific-list {
+    list-style-type: decimal; /* Vuelve al estilo decimal para objetivos específicos */
+    padding-left: 20px;
+}
+.specific-list li {
+    padding-left: 0;
+}
+.specific-list li::before {
+    content: none;
+}
+
+/* 4. Barra de Suscripción Fija (Footer) */
+.subscription-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.subscription-bar p {
+    font-size: 0.9rem;
+    margin-right: 20px;
+}
+
+.subscribe-button {
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Opcional: Media Query para móvil (si fuera necesario para un diseño responsivo) */
+@media (max-width: 1024px) {
+    /* En un sitio real, la barra lateral se ocultaría o se convertiría en un menú 'hamburguesa' */
+    /* Para este ejercicio, la ocultamos para que el contenido sea legible */
+    .sidebar-menu {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .page-section {
+        max-width: 100%;
+    }
+}
